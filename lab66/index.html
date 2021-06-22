@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
     <style>
         html,
         body {
             height: 200%;
+            font-family: 'Noto Sans TC', sans-serif;
         }
         #training-section, #testing-section {
             height: 100%;
@@ -39,7 +40,7 @@
     </style>
 </head>
 
-<body>
+<body background='./media/background.jpg'>
 
 
         <div id="right">
@@ -47,15 +48,45 @@
         </div>
 
         <div id="left">
+            <h1 style="text-align: center;">
+            資料可視化期末專題
+            </h1>
+            <h2 style="color: blue;">
+            組員:<br>
+            108598080 傅思齊<br>
+            109598079 黃彥鈞
+            </h2>
             <div id="training-section">
-				<h1>
-					訓練資料集的部分
-				</h1>
+				<h2>
+					訓練資料集的部分 資料量: 1050
+				</h2>
+                <h2 align="center" style="color:blue">
+				資料集介紹
+			    </h2>
+                <p>
+                此資料集是取自kaggle上的Rain in Australia，我們想要用來預測隔天是否會下雨。資料集裡記錄了從2007年起澳洲各地天氣站的氣象資料，包含降雨量、蒸發量、日照、不同時段的風速與風向、不同時段的溫度以及今明兩天是否降雨...等等不同資料。
+               </p>
+               
+                <p>
+                我們取了裡面location為雪梨中的1500筆資料進行處理，其中1050筆為training data，450筆為test data。
+               </p>
             </div>
-            <div id="testing-section">
-				<h1>
-					測試資料集的部分
+            <div id="testing-section" >
+				<h1 style="color:blue">
+					測試資料集的部分 數量: 450
 				</h1>
+                <h2 align="center" style="color:blue">
+				實驗結果
+			    </h2>
+                <p>
+                 在訓練資料集得到了100%的結果
+                </p>
+                 <p>
+                 
+                </p>
+                <br>
+                <br>
+                <br>
             </div>
         </div>
         
@@ -66,8 +97,7 @@
         <script src="./lib/binarydecisiontree.min.js"></script>
 
         <script>
-            var Lipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
+            
             window.onload = function () {
                 function resizeRight(){
                     d3.select("#train-vs-test")
@@ -86,42 +116,90 @@
                  * 填版面，不然全部都是白色的很單調
                  * 這兩個 section 是要讓同學放說明資料和圖片的地方
                 */
+//                d3.select("#training-section")
+//                    .selectAll("p")
+//                    .data(d3.range(1, 10))
+//                    .enter()
+//                    .append("p")
+//                    .text(t)
+//                ;
+//
+//                d3.select("#testing-section")
+//                    .selectAll("p")
+//                    .data(d3.range(1, 10))
+//                    .enter()
+//                    .append("p")
+//                    .text(Lipsum)
+//                ;
+//				
                 d3.select("#training-section")
-                    .selectAll("p")
-                    .data(d3.range(1, 10))
-                    .enter()
-                    .append("p")
-                    .text(Lipsum)
+                    .append("img")
+                    .attr("src", './media/data.png')
+                    .attr("width",'800px')
                 ;
-
+                
+                 d3.select("#testing-section")
+                    .append("img")
+                    .attr("src", './media/1.jpg')
+                    .attr("width",'300px')
+                    .attr("hieght",'200px')
+                ;
+                
+                 d3.select("#testing-section")
+                    .append("img")
+                    .attr("src", './media/2.jpg')
+                    .attr("width",'300px')
+                    .attr("hieght",'200px')
+                ;
+                
                 d3.select("#testing-section")
-                    .selectAll("p")
-                    .data(d3.range(1, 10))
-                    .enter()
-                    .append("p")
-                    .text(Lipsum)
+                    .append("img")
+                    .attr("src", './media/3.jpg')
+                    .attr("width",'300px')
+                    .attr("hieght",'200px')
                 ;
-				
-				d3.select("#training-section")
-                    .selectAll("img")
-					.data(d3.range(1, 4))
-					.enter()
-					.append("img")
-					.attr("src", function(d){ return "media/" + d + ".png"})
-                    .style('height', '350px')
-                    .style('width', '350px')
-                ;
-
+                
                 d3.select("#testing-section")
-                    .selectAll("img")
-					.data(d3.range(4, 7))
-					.enter()
-					.append("img")
-					.attr("src", function(d){ return "media/" + d + ".png"})
-                    .style('height', '350px')
-                    .style('width', '350px')
+                    .append("img")
+                    .attr("src", './media/4.jpg')
+                    .attr("width",'300px')
+                    .attr("hieght",'200px')
                 ;
-				
+                
+                d3.select("#testing-section")
+                    .append("img")
+                    .attr("src", './media/5.jpg')
+                    .attr("width",'300px')
+                    .attr("hieght",'200px')
+                ;
+                
+                d3.select("#testing-section")
+                    .append("img")
+                    .attr("src", './media/6.jpg')
+                    .attr("width",'300px')
+                    .attr("hieght",'200px')
+                ;
+                
+//				d3.select("#training-section")
+//                    .selectAll("img")
+//					.data(d3.range(1, 4))
+//					.enter()
+//					.append("img")
+//                    .attr("src", './media/data.png')
+//					.attr("src", function(d){ return "media/" + d + ".png"})
+//                    .style('height', '350px')
+//                    .style('width', '350px')
+//                ;
+
+//                d3.select("#testing-section")
+//                    .selectAll("img")
+//					.data(d3.range(4, 7))
+//					.enter()
+//					.append("img")
+//					.attr("src", function(d){ return "media/" + d + ".png"})
+//                    .style('height', '350px')
+//                    .style('width', '1350px')
+//                ;
 				
 
                 var bdt = new BinaryDecisionTree({
